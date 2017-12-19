@@ -20,6 +20,6 @@ namespace XHOnlineShop.Model.Models
         public int DisplayOrder { get; set; }
         public string Image { get; set; }
         public bool HomeFlag { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }
