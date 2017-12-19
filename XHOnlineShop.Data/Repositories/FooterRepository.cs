@@ -1,7 +1,7 @@
 ﻿using XHOnlineShop.Data.Infrastructure;
 using XHOnlineShop.Model.Models;
 
-namespace TeduShop.Data.Repositories
+namespace XHOnlineShop.Data.Repositories
 {
     public interface IFooterRepository : IRepository<Footer>
     {

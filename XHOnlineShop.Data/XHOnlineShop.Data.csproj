@@ -64,24 +64,24 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responsitories\ErrorLogResponsitory.cs" />
-    <Compile Include="Responsitories\FooterRepository.cs" />
-    <Compile Include="Responsitories\MenuGroupRepository.cs" />
-    <Compile Include="Responsitories\MenuRepository.cs" />
-    <Compile Include="Responsitories\OrderDetailRepository.cs" />
-    <Compile Include="Responsitories\OrderRepository.cs" />
-    <Compile Include="Responsitories\PageRepository.cs" />
-    <Compile Include="Responsitories\PostCategoryRepository.cs" />
-    <Compile Include="Responsitories\PostRepository.cs" />
-    <Compile Include="Responsitories\PostTagRepository.cs" />
-    <Compile Include="Responsitories\ProductCategoryRepository.cs" />
-    <Compile Include="Responsitories\ProductRepository.cs" />
-    <Compile Include="Responsitories\ProductTagRepository.cs" />
-    <Compile Include="Responsitories\SlideRepository.cs" />
-    <Compile Include="Responsitories\SupportOnlineRepository.cs" />
-    <Compile Include="Responsitories\SystemConfigRepository.cs" />
-    <Compile Include="Responsitories\TagRepository.cs" />
-    <Compile Include="Responsitories\VisitorStatisticRepository.cs" />
+    <Compile Include="Repositories\ErrorLogRepository.cs" />
+    <Compile Include="Repositories\FooterRepository.cs" />
+    <Compile Include="Repositories\MenuGroupRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
+    <Compile Include="Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PageRepository.cs" />
+    <Compile Include="Repositories\PostCategoryRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\PostTagRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductTagRepository.cs" />
+    <Compile Include="Repositories\SlideRepository.cs" />
+    <Compile Include="Repositories\SupportOnlineRepository.cs" />
+    <Compile Include="Repositories\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\VisitorStatisticRepository.cs" />
     <Compile Include="XhOnlineShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

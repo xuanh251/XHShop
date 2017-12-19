@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XHOnlineShop.Data.Infrastructure;
 using XHOnlineShop.Model.Models;
-namespace XHOnlineShop.Data.Responsitories
+namespace XHOnlineShop.Data.Repositories
 {
     public interface IErrorLogRepository : IRepository<ErrorLog>
     {

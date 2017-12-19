@@ -49,9 +49,9 @@ namespace XHOnlineShop.Web.Api
                 }
                 else
                 {
-                    var category = _postCategoryService.Update(postCategory);
+                    _postCategoryService.Update(postCategory);
                     _postCategoryService.Save();
-                    response = request.CreateResponse(HttpStatusCode.OK, category);
+                    response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;
             });

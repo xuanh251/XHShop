@@ -9,7 +9,7 @@ namespace XHOnlineShop.Service
     {
         PostCategory Add(PostCategory postCategory);
 
-        PostCategory Update(PostCategory postCategory);
+        void Update(PostCategory postCategory);
 
         void Delete(int id);
 
@@ -62,9 +62,9 @@ namespace XHOnlineShop.Service
             _unitOfWork.Commit();
         }
 
-        public PostCategory Update(PostCategory postCategory)
+        public void Update(PostCategory postCategory)
         {
-            return _postCategoryRepository.Update(postCategory);
+            _postCategoryRepository.Update(postCategory);
         }
     }
 }

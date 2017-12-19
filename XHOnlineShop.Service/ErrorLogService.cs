@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XHOnlineShop.Model.Models;
 using XHOnlineShop.Data.Infrastructure;
-using XHOnlineShop.Data.Responsitories;
+using XHOnlineShop.Data.Repositories;
 namespace XHOnlineShop.Service
 {
     public interface IErrorService
