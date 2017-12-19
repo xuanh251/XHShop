@@ -7,9 +7,9 @@ namespace XHOnlineShop.Service
 {
     public interface IPostCategoryService
     {
-        void Add(PostCategory postCategory);
+        PostCategory Add(PostCategory postCategory);
 
-        void Update(PostCategory postCategory);
+        PostCategory Update(PostCategory postCategory);
 
         void Delete(int id);
 
@@ -18,6 +18,7 @@ namespace XHOnlineShop.Service
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
         PostCategory GetById(int id);
+        void Save();
     }
 
     public class PostCategoryService : IPostCategoryService
@@ -31,9 +32,9 @@ namespace XHOnlineShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(PostCategory postCategory)
+        public PostCategory Add(PostCategory postCategory)
         {
-            _postCategoryRepository.Add(postCategory);
+            return _postCategoryRepository.Add(postCategory);
         }
 
         public void Delete(int id)
@@ -56,9 +57,14 @@ namespace XHOnlineShop.Service
             return _postCategoryRepository.GetSingleById(id);
         }
 
-        public void Update(PostCategory postCategory)
+        public void Save()
         {
-            _postCategoryRepository.Update(postCategory);
+            _unitOfWork.Commit();
+        }
+
+        public PostCategory Update(PostCategory postCategory)
+        {
+            return _postCategoryRepository.Update(postCategory);
         }
     }
 }

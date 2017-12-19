@@ -31,6 +31,7 @@ namespace XHOnlineShop.Data
         public DbSet<Slide> Slides { set; get; }
         public DbSet<SupportOnline> SupportOnlines { set; get; }
         public DbSet<SystemConfig> SystemConfigs { set; get; }
+        public DbSet<ErrorLog> ErrorLogs { get; set; }
 
         public DbSet<Tag> Tags { set; get; }
 

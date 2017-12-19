@@ -58,8 +58,13 @@
     <Compile Include="Migrations\201712190552517_InitDb.Designer.cs">
       <DependentUpon>201712190552517_InitDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712191657428_addTable-ErroLog.cs" />
+    <Compile Include="Migrations\201712191657428_addTable-ErroLog.Designer.cs">
+      <DependentUpon>201712191657428_addTable-ErroLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responsitories\ErrorLogResponsitory.cs" />
     <Compile Include="Responsitories\FooterRepository.cs" />
     <Compile Include="Responsitories\MenuGroupRepository.cs" />
     <Compile Include="Responsitories\MenuRepository.cs" />
@@ -86,6 +91,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712190552517_InitDb.resx">
       <DependentUpon>201712190552517_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191657428_addTable-ErroLog.resx">
+      <DependentUpon>201712191657428_addTable-ErroLog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
