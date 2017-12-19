@@ -2,15 +2,17 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using XHOnlineShop.Model.Models;
 
-namespace TeduShop.Model.Models
+namespace XHOnlineShop.Model.Models
 {
     [Table("OrderDetails")]
     public class OrderDetail
     {
         [Key]
+        [Column(Order = 1)]
         public int OrderID { set; get; }
 
         [Key]
+        [Column(Order = 2)]
         public int ProductID { set; get; }
 
         public int Quantitty { set; get; }

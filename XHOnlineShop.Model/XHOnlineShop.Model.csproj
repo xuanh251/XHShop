@@ -77,10 +77,6 @@
       <Project>{48075a65-69b1-4af2-a8b4-fde473d71d32}</Project>
       <Name>XHOnlineShop.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XHOnlineShop.Data\XHOnlineShop.Data.csproj">
-      <Project>{cbb8b968-2db5-4af0-ae69-b02b9bc58f79}</Project>
-      <Name>XHOnlineShop.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

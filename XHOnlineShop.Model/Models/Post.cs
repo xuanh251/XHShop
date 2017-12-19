@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using XHOnlineShop.Model.Abtract;
 
-namespace TeduShop.Model.Models
+namespace XHOnlineShop.Model.Models
 {
     [Table("Posts")]
     public class Post : Auditable

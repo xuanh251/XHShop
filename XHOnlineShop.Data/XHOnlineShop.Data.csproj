@@ -47,12 +47,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201712190552517_InitDb.cs" />
+    <Compile Include="Migrations\201712190552517_InitDb.Designer.cs">
+      <DependentUpon>201712190552517_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responsitories\FooterRepository.cs" />
+    <Compile Include="Responsitories\MenuGroupRepository.cs" />
+    <Compile Include="Responsitories\MenuRepository.cs" />
+    <Compile Include="Responsitories\OrderDetailRepository.cs" />
+    <Compile Include="Responsitories\OrderRepository.cs" />
+    <Compile Include="Responsitories\PageRepository.cs" />
+    <Compile Include="Responsitories\PostCategoryRepository.cs" />
+    <Compile Include="Responsitories\PostRepository.cs" />
+    <Compile Include="Responsitories\PostTagRepository.cs" />
+    <Compile Include="Responsitories\ProductCategoryRepository.cs" />
+    <Compile Include="Responsitories\ProductRepository.cs" />
+    <Compile Include="Responsitories\ProductTagRepository.cs" />
+    <Compile Include="Responsitories\SlideRepository.cs" />
+    <Compile Include="Responsitories\SupportOnlineRepository.cs" />
+    <Compile Include="Responsitories\SystemConfigRepository.cs" />
+    <Compile Include="Responsitories\TagRepository.cs" />
+    <Compile Include="Responsitories\VisitorStatisticRepository.cs" />
+    <Compile Include="XhOnlineShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712190552517_InitDb.resx">
+      <DependentUpon>201712190552517_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XHOnlineShop.Model\XHOnlineShop.Model.csproj">
+      <Project>{5cb33e48-db2e-4f7b-aaac-972151401bfc}</Project>
+      <Name>XHOnlineShop.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
