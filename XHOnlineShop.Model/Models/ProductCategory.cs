@@ -11,10 +11,13 @@ namespace XHOnlineShop.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [Required]
         public string Alias { get; set; }
+
         public string Description { get; set; }
         public int ParentID { get; set; }
         public int DisplayOrder { get; set; }

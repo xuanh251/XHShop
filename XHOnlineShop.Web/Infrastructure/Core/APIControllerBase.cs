@@ -1,32 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XHOnlineShop.Model.Models;
 using XHOnlineShop.Service;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
 
 namespace XHOnlineShop.Web.Infrastructure.Core
 {
     public class APIControllerBase : ApiController
     {
         private IErrorService _errorService;
+
         public APIControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;
         }
-        protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage,Func<HttpResponseMessage> func)
+
+        protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> func)
         {
             HttpResponseMessage response = null;
             try
             {
                 response = func.Invoke();
             }
-            catch(DbEntityValidationException ex)
+            catch (DbEntityValidationException ex)
             {
                 foreach (var item in ex.EntityValidationErrors)
                 {
@@ -39,7 +39,7 @@ namespace XHOnlineShop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
             }
-            catch(DbUpdateException dbEx)
+            catch (DbUpdateException dbEx)
             {
                 LogError(dbEx);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dbEx.InnerException.Message);
@@ -47,10 +47,11 @@ namespace XHOnlineShop.Web.Infrastructure.Core
             catch (Exception ex)
             {
                 LogError(ex);
-                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest,ex.Message);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
             return response;
         }
+
         //ghi lỗi vào database
         private void LogError(Exception ex)
         {

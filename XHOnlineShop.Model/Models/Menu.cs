@@ -22,6 +22,7 @@ namespace XHOnlineShop.Model.Models
 
         [Required]
         public int GroupID { get; set; }
+
         [MaxLength(10)]
         public string Target { get; set; }
 

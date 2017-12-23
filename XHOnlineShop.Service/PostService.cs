@@ -1,29 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XHOnlineShop.Model.Models;
-using XHOnlineShop.Data.Repositories;
+﻿using System.Collections.Generic;
 using XHOnlineShop.Data.Infrastructure;
+using XHOnlineShop.Data.Repositories;
+using XHOnlineShop.Model.Models;
+
 namespace XHOnlineShop.Service
 {
     public interface IPostService
     {
         void Add(Post post);
+
         void Update(Post post);
+
         void Delete(int id);
+
         IEnumerable<Post> GetAll();
+
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+
         IEnumerable<Post> GetAllByCategoryPaging(int categoryID, int page, int pageSize, out int totalRow);
+
         Post GetById(int id);
+
         IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
+
         void SaveChange();
     }
+
     public class PostService : IPostService
     {
-        IPostRepository _postResponsitory;
-        IUnitOfWork _unitOfWork;
+        private IPostRepository _postResponsitory;
+        private IUnitOfWork _unitOfWork;
+
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
             this._postResponsitory = postRepository;
@@ -47,12 +54,12 @@ namespace XHOnlineShop.Service
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryID, int page, int pageSize, out int totalRow)
         {
-            return _postResponsitory.GetMultiPaging(s => s.Status && s.CategoryID == categoryID, out totalRow, page, pageSize, new string[] { "PostCatogory"});
+            return _postResponsitory.GetMultiPaging(s => s.Status && s.CategoryID == categoryID, out totalRow, page, pageSize, new string[] { "PostCatogory" });
         }
 
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
-            return _postResponsitory.GetAllByTag(tag,page,pageSize, out totalRow);
+            return _postResponsitory.GetAllByTag(tag, page, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
@@ -74,6 +81,5 @@ namespace XHOnlineShop.Service
         {
             _postResponsitory.Update(post);
         }
-
     }
 }

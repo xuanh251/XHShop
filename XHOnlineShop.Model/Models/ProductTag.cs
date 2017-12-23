@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using XHOnlineShop.Model.Models;
 
 namespace XHOnlineShop.Model.Models
 {
@@ -12,7 +11,7 @@ namespace XHOnlineShop.Model.Models
         public int ProductID { set; get; }
 
         [Key]
-        [Column(TypeName = "varchar",Order =2)]
+        [Column(TypeName = "varchar", Order = 2)]
         [MaxLength(50)]
         public string TagID { set; get; }
 

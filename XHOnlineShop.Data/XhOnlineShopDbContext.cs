@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using XHOnlineShop.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace XHOnlineShop.Data
 {
-    public class XHOnlineShopDbContext : DbContext
+    public class XHOnlineShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public XHOnlineShopDbContext() : base("XHOnlineShopConnection")
         {
@@ -37,10 +33,14 @@ namespace XHOnlineShop.Data
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
 
-
+        public static XHOnlineShopDbContext Create()
+        {
+            return new XHOnlineShopDbContext();
+        }
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-
+            builder.Entity<IdentityUserRole>().HasKey(s=>new {s.RoleId, s.UserId});
+            builder.Entity<IdentityUserLogin>().HasKey(s => s.UserId);
         }
     }
 }

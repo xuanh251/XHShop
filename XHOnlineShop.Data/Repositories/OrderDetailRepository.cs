@@ -3,7 +3,7 @@ using XHOnlineShop.Model.Models;
 
 namespace XHOnlineShop.Data.Repositories
 {
-    public interface IOrderDetailRepository :  IRepository<OrderDetail>
+    public interface IOrderDetailRepository : IRepository<OrderDetail>
     {
     }
 

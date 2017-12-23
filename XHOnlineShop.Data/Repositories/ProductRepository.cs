@@ -2,7 +2,7 @@
 using XHOnlineShop.Model.Models;
 
 namespace XHOnlineShop.Data.Repositories
-{ 
+{
     public interface IProductRepository : IRepository<Product>
     {
     }

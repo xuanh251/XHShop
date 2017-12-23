@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XHOnlineShop.Data.Infrastructure
 {
     public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
+
         private XHOnlineShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
 
@@ -24,7 +23,8 @@ namespace XHOnlineShop.Data.Infrastructure
         {
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
-        #endregion
+
+        #endregion Properties
 
         protected RepositoryBase(IDbFactory dbFactory)
         {
@@ -33,6 +33,7 @@ namespace XHOnlineShop.Data.Infrastructure
         }
 
         #region Implementation
+
         public virtual T Add(T entity)
         {
             return dbSet.Add(entity);
@@ -48,6 +49,7 @@ namespace XHOnlineShop.Data.Infrastructure
         {
             return dbSet.Remove(entity);
         }
+
         public virtual T Delete(int id)
         {
             var entity = dbSet.Find(id);
@@ -71,7 +73,6 @@ namespace XHOnlineShop.Data.Infrastructure
             return dbSet.Where(where).ToList();
         }
 
-
         public virtual int Count(Expression<Func<T, bool>> where)
         {
             return dbSet.Count(where);
@@ -87,7 +88,6 @@ namespace XHOnlineShop.Data.Infrastructure
                     query = query.Include(include);
                 return query.AsQueryable();
             }
-
             return dataContext.Set<T>().AsQueryable();
         }
 
@@ -144,6 +144,7 @@ namespace XHOnlineShop.Data.Infrastructure
         {
             return dataContext.Set<T>().Count<T>(predicate) > 0;
         }
-        #endregion
+
+        #endregion Implementation
     }
 }
