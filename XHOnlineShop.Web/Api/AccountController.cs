@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Http;
 using XHOnlineShop.Web.App_Start;
 namespace XHOnlineShop.Web.Api
 {
