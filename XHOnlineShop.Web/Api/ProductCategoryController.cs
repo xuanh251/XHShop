@@ -9,6 +9,7 @@ using XHOnlineShop.Service;
 using XHOnlineShop.Web.Infrastructure.Core;
 using XHOnlineShop.Model.Models;
 using XHOnlineShop.Web.Models;
+using XHOnlineShop.Web.Infrastructure.Extensions;
 
 namespace XHOnlineShop.Web.Api
 {
@@ -20,7 +21,32 @@ namespace XHOnlineShop.Web.Api
         {
             _productCategoryService = productCategoryService;
         }
+        [Route("create")]
+        [HttpPost]
+        [AllowAnonymous]
+        public HttpResponseMessage Create(HttpRequestMessage requestMessage, ProductCategoryViewModel productCategoryViewModel)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                HttpResponseMessage responseMessage = null;
+                if (!ModelState.IsValid)
+                {
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.BadRequest,ModelState);
+                }
+                else
+                {
+                    ProductCategory productCategory = new ProductCategory();
+                    productCategory.UpdateProductCategory(productCategoryViewModel);
+                    _productCategoryService.Add(productCategory);
+                    _productCategoryService.Save();
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.Created, responseData);
+                }
+                return responseMessage;
+            });
+        }
         [Route("getall")]
+        [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage requestMessage, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(requestMessage, () =>
@@ -39,6 +65,17 @@ namespace XHOnlineShop.Web.Api
                     TotalCount = totalRow
                 };
                 var response = requestMessage.CreateResponse(HttpStatusCode.OK, paginationSet);
+                return response;
+            });
+        }
+        [Route("getallparents")]
+        public HttpResponseMessage GetAll(HttpRequestMessage requestMessage)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                var model = _productCategoryService.GetAll();
+                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+                var response = requestMessage.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });
         }

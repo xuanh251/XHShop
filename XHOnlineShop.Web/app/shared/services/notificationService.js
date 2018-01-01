@@ -34,7 +34,7 @@
                 });
             }
             else {
-                error(error);
+                toastr.error(error);
             }
         }
         function displayWarning(message) {

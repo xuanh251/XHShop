@@ -10,6 +10,7 @@
     "fastclick": "~1.0.6",
     "fontAwesome": "*",
     "ionicons": "*",
-    "toastr": "*"
+    "toastr": "*",
+    "moment": "*"
   }
 }

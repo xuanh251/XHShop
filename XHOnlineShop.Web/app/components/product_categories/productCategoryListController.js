@@ -1,5 +1,4 @@
 ﻿(function (app) {
-    
     app.controller('productCategoryListController', productCategoryListController);
     productCategoryListController.$inject = ['$scope','apiService','notificationService'];
     function productCategoryListController($scope, apiService, notificationService) {
@@ -20,7 +19,7 @@
                 params: {
                     keyword: $scope.keyword,
                     page: page,
-                    pageSize: 4
+                    pageSize: 10
                 }
             }
             

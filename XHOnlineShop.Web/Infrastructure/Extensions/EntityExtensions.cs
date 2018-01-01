@@ -43,5 +43,23 @@ namespace XHOnlineShop.Web.Infrastructure.Extensions
             post.MetaDescription = postViewModel.MetaDescription;
             post.Status = postViewModel.Status;
         }
+        public static void UpdateProductCategory(this ProductCategory productCategoryCategory, ProductCategoryViewModel productCategoryViewModel)
+        {
+            productCategoryCategory.ID = productCategoryViewModel.ID;
+            productCategoryCategory.Name = productCategoryViewModel.Name;
+            productCategoryCategory.Alias = productCategoryViewModel.Alias;
+            productCategoryCategory.Description = productCategoryViewModel.Description;
+            productCategoryCategory.ParentID = productCategoryViewModel.ParentID;
+            productCategoryCategory.DisplayOrder = productCategoryViewModel.DisplayOrder;
+            productCategoryCategory.Image = productCategoryViewModel.Image;
+            productCategoryCategory.HomeFlag = productCategoryViewModel.HomeFlag;
+            productCategoryCategory.CreatedDate = productCategoryViewModel.CreatedDate;
+            productCategoryCategory.CreatedBy = productCategoryViewModel.CreatedBy;
+            productCategoryCategory.UpdatedDate = productCategoryViewModel.UpdatedDate;
+            productCategoryCategory.UpdatedBy = productCategoryViewModel.UpdatedBy;
+            productCategoryCategory.MetaKeyword = productCategoryViewModel.MetaKeyword;
+            productCategoryCategory.MetaDescription = productCategoryViewModel.MetaDescription;
+            productCategoryCategory.Status = productCategoryViewModel.Status;
+        }
     }
 }

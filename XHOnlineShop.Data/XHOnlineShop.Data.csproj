@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201712211028257_changeKey.Designer.cs">
       <DependentUpon>201712211028257_changeKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801011314117_addNotNull.cs" />
+    <Compile Include="Migrations\201801011314117_addNotNull.Designer.cs">
+      <DependentUpon>201801011314117_addNotNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorLogRepository.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712211028257_changeKey.resx">
       <DependentUpon>201712211028257_changeKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801011314117_addNotNull.resx">
+      <DependentUpon>201801011314117_addNotNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

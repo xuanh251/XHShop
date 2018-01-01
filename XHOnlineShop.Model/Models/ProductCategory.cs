@@ -19,10 +19,10 @@ namespace XHOnlineShop.Model.Models
         public string Alias { get; set; }
 
         public string Description { get; set; }
-        public int ParentID { get; set; }
-        public int DisplayOrder { get; set; }
+        public int? ParentID { get; set; }
+        public int? DisplayOrder { get; set; }
         public string Image { get; set; }
-        public bool HomeFlag { get; set; }
+        public bool? HomeFlag { get; set; }
         public virtual IEnumerable<Product> Products { get; set; }
     }
 }
