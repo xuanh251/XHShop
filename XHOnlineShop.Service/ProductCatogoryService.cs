@@ -18,6 +18,7 @@ namespace XHOnlineShop.Service
         void Delete(int id);
 
         IEnumerable<ProductCategory> GetAll();
+        IEnumerable<ProductCategory> GetAll(string keyword);
 
         IEnumerable<ProductCategory> GetAllByParentId(int parentId);
 
@@ -50,6 +51,19 @@ namespace XHOnlineShop.Service
         public IEnumerable<ProductCategory> GetAll()
         {
             return _ProductCategoryRepository.GetAll();
+        }
+
+        public IEnumerable<ProductCategory> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                return _ProductCategoryRepository.GetMulti(s => s.Name.Contains(keyword) || s.Description.Contains(keyword));
+            }
+            else
+            {
+                return _ProductCategoryRepository.GetAll();
+            }
+            
         }
 
         public IEnumerable<ProductCategory> GetAllByParentId(int parentId)
