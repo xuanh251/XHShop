@@ -6,8 +6,8 @@
             url: "/products",
             templateUrl: "/app/components/products/productListView.html",
             controller: "productListController"
-        }).state('products_add', {
-            url: "/products_add",
+        }).state('add_products', {
+            url: "/add_products",
             templateUrl: "/app/components/products/productAddView.html",
             controller: "productAddController"
         });

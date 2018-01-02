@@ -13,6 +13,11 @@
     "toastr": "*",
     "moment": "*",
     "bootbox": "*",
-    "ngBootbox": "*"
+    "ngBootbox": "*",
+    "ckeditor": "*",
+    "ng-ckeditor": "*",
+  },
+  "resolutions": {
+    "angular": "1.6.8"
   }
 }

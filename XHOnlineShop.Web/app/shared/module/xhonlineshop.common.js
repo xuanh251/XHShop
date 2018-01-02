@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module('xhonlineshop.common', ['ui.router','ngBootbox'])
+    angular.module('xhonlineshop.common', ['ui.router', 'ngBootbox','ngCkeditor'])
 })();
