@@ -15,7 +15,7 @@ namespace XHOnlineShop.Service
 
         void Update(ProductCategory ProductCategory);
 
-        void Delete(int id);
+        ProductCategory Delete(int id);
 
         IEnumerable<ProductCategory> GetAll();
         IEnumerable<ProductCategory> GetAll(string keyword);
@@ -43,9 +43,9 @@ namespace XHOnlineShop.Service
             return _ProductCategoryRepository.Add(ProductCategory);
         }
 
-        public void Delete(int id)
+        public ProductCategory Delete(int id)
         {
-            _ProductCategoryRepository.Delete(id);
+           return _ProductCategoryRepository.Delete(id);
         }
 
         public IEnumerable<ProductCategory> GetAll()
@@ -57,7 +57,7 @@ namespace XHOnlineShop.Service
         {
             if (!string.IsNullOrEmpty(keyword))
             {
-                return _ProductCategoryRepository.GetMulti(s => s.Name.Contains(keyword) || s.Description.Contains(keyword));
+                return _ProductCategoryRepository.GetMulti(s => s.Name.Contains(keyword) || s.Description.Contains(keyword)||s.Alias.Contains(keyword));
             }
             else
             {

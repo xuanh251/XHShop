@@ -11,6 +11,8 @@
     "fontAwesome": "*",
     "ionicons": "*",
     "toastr": "*",
-    "moment": "*"
+    "moment": "*",
+    "bootbox": "*",
+    "ngBootbox": "*"
   }
 }

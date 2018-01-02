@@ -6,7 +6,21 @@
         return {
             get: get,
             post: post,
-            put:put
+            put: put,
+            del:del
+        }
+        function del(url, data, success, failure) {
+            $http.delete(url, data).then(function (result) {
+                success(result);
+            }, function (error) {
+                if (error.status === 401) {
+                    notificationService.displayError('Yêu cầu đăng nhập!');
+                }
+                else if (failure != null) {
+                    failure(error);
+                }
+
+            });
         }
         function post(url, data, success, failure) {
             $http.post(url, data).then(function (result) {

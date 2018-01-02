@@ -22,19 +22,24 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Tên danh mục</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Tên danh mục" ng-change="GetSeoTitle()" name="name" ng-model="productCategory.Name">
+                        <input type="text" class="form-control" ng-maxlength="256" required placeholder="Tên danh mục" ng-change="GetSeoTitle()" name="name" ng-model="productCategory.Name">
+                        <span ng-show="frmUpdateProductCategory.name.$invalid" class="has-error">Phải nhập tên danh mục.</span>
+                        <span ng-show="frmUpdateProductCategory.name.$error.maxlength" class="has-error">Tên danh mục không được vượt quá 256 ký tự.</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Tiêu đề SEO</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Tiêu đề SEO" name="alias" ng-model="productCategory.Alias">
+                        <input type="text" class="form-control" ng-maxlength="256" required placeholder="Tiêu đề SEO" name="alias" ng-model="productCategory.Alias">
+                        <span ng-show="frmUpdateProductCategory.alias.$invalid" class="has-error">Phải nhập tiêu đề SEO</span>
+                        <span ng-show="frmUpdateProductCategory.alias.$error.maxlength" class="has-error">Tiêu đề SEO không được vượt quá 256 ký tự.</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Mô tả ngắn</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Mô tả ngắn" name="description" ng-model="productCategory.Description">
+                        <input type="text" class="form-control" placeholder="Mô tả ngắn" name="description" ng-maxlength="500" ng-model="productCategory.Description">
+                        <span ng-show="frmUpdateProductCategory.description.$error.maxlength" class="has-error">Mô tả không được vượt quá 500 ký tự.</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -49,7 +54,8 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Thứ tự</label>
                     <div class="col-sm-10">
-                        <input type="number" ng-model="productCategory.DisplayOrder" name="displayOrder" class="form-control" placeholder="Thứ tự">
+                        <input type="number" required ng-model="productCategory.DisplayOrder" name="displayOrder" class="form-control" placeholder="Thứ tự">
+                        <span ng-show="frmUpdateProductCategory.displayOrder.$invalid" class="has-error">Phải nhập thứ tự</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -92,7 +98,7 @@
             <!-- /.box-body -->
             <div class="box-footer">
                 <button ui-sref="product_categories" class="btn btn-default"><i class="fa fa-times" aria-hidden="true"></i> Huỷ</button>
-                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-floppy-o" aria-hidden="true"></i> Lưu</button>
+                <button type="submit" ng-disabled="frmUpdateProductCategory.$invalid" class="btn btn-info pull-right"><i class="fa fa-floppy-o" aria-hidden="true"></i> Lưu</button>
             </div>
             <!-- /.box-footer -->
         </form>

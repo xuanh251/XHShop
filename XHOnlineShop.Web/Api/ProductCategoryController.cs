@@ -10,6 +10,7 @@ using XHOnlineShop.Web.Infrastructure.Core;
 using XHOnlineShop.Model.Models;
 using XHOnlineShop.Web.Models;
 using XHOnlineShop.Web.Infrastructure.Extensions;
+using System.Web.Script.Serialization;
 
 namespace XHOnlineShop.Web.Api
 {
@@ -108,6 +109,53 @@ namespace XHOnlineShop.Web.Api
                 return response;
             });
         }
+        [Route("delete")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage Delete(HttpRequestMessage requestMessage, int id)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                HttpResponseMessage responseMessage = null;
+                if (!ModelState.IsValid)
+                {
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var oldData = _productCategoryService.Delete(id);
+                    _productCategoryService.Save();
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.Created, oldData);
+                }
+                return responseMessage;
+            });
+        }
+        [Route("deletemulti")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage requestMessage, string listId)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                HttpResponseMessage responseMessage = null;
+                if (!ModelState.IsValid)
+                {
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listId);
+                    foreach (var id in ids)
+                    {
+                        _productCategoryService.Delete(id);
+                    }
+                    _productCategoryService.Save();
+
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.Created, ids.Count);
+                }
+                return responseMessage;
+            });
+        }
         [Route("getbyid/{id:int}")]
         [HttpGet]
         public HttpResponseMessage GetById(HttpRequestMessage requestMessage, int id)
@@ -120,5 +168,7 @@ namespace XHOnlineShop.Web.Api
                 return response;
             });
         }
+        
+
     }
 }
