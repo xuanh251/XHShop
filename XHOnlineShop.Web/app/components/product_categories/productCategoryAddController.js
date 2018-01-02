@@ -3,12 +3,15 @@
 /// <reference path="../../shared/services/apiservice.js" />
 (function (app) {
     app.controller('productCategoryAddController', productCategoryAddController);
-    productCategoryAddController.$inject=['apiService','$scope','notificationService','$state']
-    function productCategoryAddController(apiService, $scope, notificationService,$state) {
+    productCategoryAddController.$inject=['apiService','$scope','notificationService','$state','commonService']
+    function productCategoryAddController(apiService, $scope, notificationService, $state, commonService) {
         $scope.productCategory = {
-            CreatedDate: moment().format() ,
             Status: true,
             HomeFlag: true,
+        }
+        $scope.GetSeoTitle = GetSeoTitle;
+        function GetSeoTitle() {
+            $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
         }
         $scope.AddProductCategory = AddProductCategory;
         function AddProductCategory() {

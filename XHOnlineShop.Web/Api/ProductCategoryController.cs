@@ -37,6 +37,7 @@ namespace XHOnlineShop.Web.Api
                 {
                     ProductCategory productCategory = new ProductCategory();
                     productCategory.UpdateProductCategory(productCategoryViewModel);
+                    productCategory.CreatedDate = DateTime.Now;
                     _productCategoryService.Add(productCategory);
                     _productCategoryService.Save();
                     var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
@@ -45,6 +46,33 @@ namespace XHOnlineShop.Web.Api
                 return responseMessage;
             });
         }
+
+        [Route("update")]
+        [HttpPut]
+        [AllowAnonymous]
+        public HttpResponseMessage Update(HttpRequestMessage requestMessage, ProductCategoryViewModel productCategoryViewModel)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                HttpResponseMessage responseMessage = null;
+                if (!ModelState.IsValid)
+                {
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    ProductCategory productCategory = _productCategoryService.GetById(productCategoryViewModel.ID);
+                    productCategory.UpdateProductCategory(productCategoryViewModel);
+                    productCategory.UpdatedDate = DateTime.Now;
+                    _productCategoryService.Update(productCategory);
+                    _productCategoryService.Save();
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
+                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.Created, responseData);
+                }
+                return responseMessage;
+            });
+        }
+
         [Route("getall")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage requestMessage, string keyword, int page, int pageSize = 20)
@@ -69,12 +97,25 @@ namespace XHOnlineShop.Web.Api
             });
         }
         [Route("getallparents")]
+        [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage requestMessage)
         {
             return CreateHttpResponse(requestMessage, () =>
             {
                 var model = _productCategoryService.GetAll();
                 var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+                var response = requestMessage.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetById(HttpRequestMessage requestMessage, int id)
+        {
+            return CreateHttpResponse(requestMessage, () =>
+            {
+                var model = _productCategoryService.GetById(id);
+                var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(model);
                 var response = requestMessage.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });
