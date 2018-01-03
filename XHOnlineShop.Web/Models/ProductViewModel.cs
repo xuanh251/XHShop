@@ -28,6 +28,7 @@ namespace XHOnlineShop.Web.Models
         public string MetaKeyword { get; set; }
         public string MetaDescription { get; set; }
         public bool Status { get; set; }
+        public string Tags { get; set; }
         public virtual ProductCategoryViewModel ProductCategory { get; set; }
     }
 }

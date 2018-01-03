@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201801011314117_addNotNull.Designer.cs">
       <DependentUpon>201801011314117_addNotNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801030432578_tags.cs" />
+    <Compile Include="Migrations\201801030432578_tags.Designer.cs">
+      <DependentUpon>201801030432578_tags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorLogRepository.cs" />
@@ -121,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801011314117_addNotNull.resx">
       <DependentUpon>201801011314117_addNotNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801030432578_tags.resx">
+      <DependentUpon>201801030432578_tags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

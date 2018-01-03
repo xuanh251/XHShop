@@ -84,6 +84,7 @@ namespace XHOnlineShop.Web.Infrastructure.Extensions
             product.MetaKeyword = productViewModel.MetaKeyword;
             product.MetaDescription = productViewModel.MetaDescription;
             product.Status = productViewModel.Status;
+            product.Tags = productViewModel.Tags;
         }
     }
 }
