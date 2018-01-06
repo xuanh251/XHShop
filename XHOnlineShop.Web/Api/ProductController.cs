@@ -15,6 +15,7 @@ using XHOnlineShop.Web.Models;
 namespace XHOnlineShop.Web.Api
 {
     [RoutePrefix("api/product")]
+    [Authorize]
     public class ProductController : APIControllerBase
     {
         IProductService _productService;
@@ -39,6 +40,7 @@ namespace XHOnlineShop.Web.Api
                     Product product = new Product();
                     product.UpdateProduct(productViewModel);
                     product.CreatedDate = DateTime.Now;
+                    product.CreatedBy = User.Identity.Name;
                     _productService.Add(product);
                     _productService.Save();
                     var responseData = Mapper.Map<Product, ProductViewModel>(product);
@@ -65,6 +67,7 @@ namespace XHOnlineShop.Web.Api
                     Product product = _productService.GetById(productViewModel.ID);
                     product.UpdateProduct(productViewModel);
                     product.UpdatedDate = DateTime.Now;
+                    product.UpdatedBy = User.Identity.Name;
                     _productService.Update(product);
                     _productService.Save();
                     var responseData = Mapper.Map<Product, ProductViewModel>(product);

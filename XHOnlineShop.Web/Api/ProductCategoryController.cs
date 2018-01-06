@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace XHOnlineShop.Web.Api
 {
     [RoutePrefix("api/productcategory")]
+    [Authorize]
     public class ProductCategoryController : APIControllerBase
     {
         IProductCategoryService _productCategoryService;
@@ -39,6 +40,7 @@ namespace XHOnlineShop.Web.Api
                     ProductCategory productCategory = new ProductCategory();
                     productCategory.UpdateProductCategory(productCategoryViewModel);
                     productCategory.CreatedDate = DateTime.Now;
+                    productCategory.CreatedBy = User.Identity.Name;
                     _productCategoryService.Add(productCategory);
                     _productCategoryService.Save();
                     var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
@@ -65,6 +67,7 @@ namespace XHOnlineShop.Web.Api
                     ProductCategory productCategory = _productCategoryService.GetById(productCategoryViewModel.ID);
                     productCategory.UpdateProductCategory(productCategoryViewModel);
                     productCategory.UpdatedDate = DateTime.Now;
+                    productCategory.UpdatedBy = User.Identity.Name;
                     _productCategoryService.Update(productCategory);
                     _productCategoryService.Save();
                     var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);

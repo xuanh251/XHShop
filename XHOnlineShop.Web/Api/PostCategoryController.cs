@@ -12,6 +12,7 @@ using XHOnlineShop.Web.Infrastructure.Extensions;
 namespace XHOnlineShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : APIControllerBase
     {
         private IPostCategoryService _postCategoryService;

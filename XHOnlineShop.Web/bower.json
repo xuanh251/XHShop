@@ -16,6 +16,8 @@
     "ngBootbox": "*",
     "ckeditor": "*",
     "ng-ckeditor": "*",
+    "angular-local-storage": "*",
+    "angular-loading-bar": "*"
   },
   "resolutions": {
     "angular": "1.6.8"
