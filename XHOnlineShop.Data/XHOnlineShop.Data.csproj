@@ -84,8 +84,20 @@
     <Compile Include="Migrations\201801030432578_tags.Designer.cs">
       <DependentUpon>201801030432578_tags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801071823124_changeIdentityTableName.cs" />
+    <Compile Include="Migrations\201801071823124_changeIdentityTableName.Designer.cs">
+      <DependentUpon>201801071823124_changeIdentityTableName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801071845236_addTable.cs" />
+    <Compile Include="Migrations\201801071845236_addTable.Designer.cs">
+      <DependentUpon>201801071845236_addTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserGroupRepository.cs" />
     <Compile Include="Repositories\ErrorLogRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
@@ -128,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801030432578_tags.resx">
       <DependentUpon>201801030432578_tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801071823124_changeIdentityTableName.resx">
+      <DependentUpon>201801071823124_changeIdentityTableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801071845236_addTable.resx">
+      <DependentUpon>201801071845236_addTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -28,6 +28,10 @@ namespace XHOnlineShop.Data
         public DbSet<SupportOnline> SupportOnlines { set; get; }
         public DbSet<SystemConfig> SystemConfigs { set; get; }
         public DbSet<ErrorLog> ErrorLogs { get; set; }
+        public DbSet<ApplicationGroup> ApplicationGroups { get; set; }
+        public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { get; set; }
+        public DbSet<ApplicationUserGroup> ApplicationUserGroups { get; set; }
 
         public DbSet<Tag> Tags { set; get; }
 
@@ -39,8 +43,10 @@ namespace XHOnlineShop.Data
         }
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.Entity<IdentityUserRole>().HasKey(s=>new {s.RoleId, s.UserId});
-            builder.Entity<IdentityUserLogin>().HasKey(s => s.UserId);
+            builder.Entity<IdentityUserRole>().HasKey(s=>new {s.RoleId, s.UserId}).ToTable("ApplicationUserRoles");
+            builder.Entity<IdentityUserLogin>().HasKey(s => s.UserId).ToTable("ApplicationUserLogins");
+            builder.Entity<IdentityRole>().ToTable("ApplicationRoles");
+            builder.Entity<IdentityUserClaim>().HasKey(s => s.UserId).ToTable("ApplicationUserClaims");
         }
     }
 }

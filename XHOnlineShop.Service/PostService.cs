@@ -28,48 +28,48 @@ namespace XHOnlineShop.Service
 
     public class PostService : IPostService
     {
-        private IPostRepository _postResponsitory;
+        private IPostRepository _postRepository;
         private IUnitOfWork _unitOfWork;
 
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
-            this._postResponsitory = postRepository;
+            this._postRepository = postRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public void Add(Post post)
         {
-            _postResponsitory.Add(post);
+            _postRepository.Add(post);
         }
 
         public void Delete(int id)
         {
-            _postResponsitory.Delete(id);
+            _postRepository.Delete(id);
         }
 
         public IEnumerable<Post> GetAll()
         {
-            return _postResponsitory.GetAll(new string[] { "PostCategory" });
+            return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryID, int page, int pageSize, out int totalRow)
         {
-            return _postResponsitory.GetMultiPaging(s => s.Status && s.CategoryID == categoryID, out totalRow, page, pageSize, new string[] { "PostCatogory" });
+            return _postRepository.GetMultiPaging(s => s.Status && s.CategoryID == categoryID, out totalRow, page, pageSize, new string[] { "PostCatogory" });
         }
 
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
-            return _postResponsitory.GetAllByTag(tag, page, pageSize, out totalRow);
+            return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _postResponsitory.GetMultiPaging(s => s.Status, out totalRow, page, pageSize);
+            return _postRepository.GetMultiPaging(s => s.Status, out totalRow, page, pageSize);
         }
 
         public Post GetById(int id)
         {
-            return _postResponsitory.GetSingleById(id);
+            return _postRepository.GetSingleById(id);
         }
 
         public void SaveChange()
@@ -79,7 +79,7 @@ namespace XHOnlineShop.Service
 
         public void Update(Post post)
         {
-            _postResponsitory.Update(post);
+            _postRepository.Update(post);
         }
     }
 }
